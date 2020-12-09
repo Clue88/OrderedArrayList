@@ -58,6 +58,24 @@ public class Tester {
             except(test, e);
         }
 
+        test = "OrderedArrayList()";
+        try {
+            OrderedArrayList<String> s = new OrderedArrayList<String>();
+            OrderedArrayList<Boolean> b = new OrderedArrayList<Boolean>();
+            nothing(s, b);
+        } catch(RuntimeException e) {
+            except(test, e);
+        }
+
+        test = "OrderedArrayList(int initialCapacity)";
+        try {
+            OrderedArrayList<String> s = new OrderedArrayList<String>(5);
+            OrderedArrayList<Boolean> b = new OrderedArrayList<Boolean>(63);
+            nothing(s, b);
+        } catch(RuntimeException e) {
+            except(test, e);
+        }
+
         if (ERR == 0) System.out.println("All good!");
         else if (ERR == 1) System.out.println("Uh oh... 1 error found.");
         else System.out.println("Uh oh... " + ERR + " errors found.");
