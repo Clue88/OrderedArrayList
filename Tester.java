@@ -21,6 +21,41 @@ public class Tester {
             except(test, e);
         }
 
+        test = "NoNullArrayList.add(int index, T element)";
+        try {
+            NoNullArrayList<String> s = new NoNullArrayList<String>();
+            s.add(0, "Hello, world!");
+            s.add(0, null);
+            noException(test, "IllegalArgumentException");
+        } catch(IllegalArgumentException e) {
+        } catch(RuntimeException e) {
+            except(test, e);
+        }
+
+        test = "NoNullArrayList.add(T element)";
+        try {
+            NoNullArrayList<String> s = new NoNullArrayList<String>();
+            s.add("Hello, world!");
+            s.add(null);
+            noException(test, "IllegalArgumentException");
+        } catch(IllegalArgumentException e) {
+        } catch(RuntimeException e) {
+            except(test, e);
+        }
+
+        test = "NoNullArrayList.set(int index, T element)";
+        try {
+            NoNullArrayList<String> s = new NoNullArrayList<String>();
+            s.add("hi");
+            s.add("there");
+            s.set(1, "cool");
+            s.set(1, null);
+            noException(test, "IllegalArgumentException");
+        } catch(IllegalArgumentException e) {
+        } catch(RuntimeException e) {
+            except(test, e);
+        }
+
         if (ERR == 0) System.out.println("All good!");
         else if (ERR == 1) System.out.println("Uh oh... 1 error found.");
         else System.out.println("Uh oh... " + ERR + " errors found.");
