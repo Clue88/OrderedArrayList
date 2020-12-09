@@ -9,6 +9,7 @@ public class Tester {
         try {
             NoNullArrayList<String> s = new NoNullArrayList<String>();
             NoNullArrayList<Boolean> b = new NoNullArrayList<Boolean>();
+            nothing(s, b);
         } catch(RuntimeException e) {
             except(test, e);
         }
@@ -17,6 +18,7 @@ public class Tester {
         try {
             NoNullArrayList<String> s = new NoNullArrayList<String>(5);
             NoNullArrayList<Boolean> b = new NoNullArrayList<Boolean>(63);
+            nothing(s, b);
         } catch(RuntimeException e) {
             except(test, e);
         }
@@ -78,5 +80,9 @@ public class Tester {
     public static void noException(String test, String expected) {
         System.out.println("Failure on " + test + ": Expected " + expected);
         ERR++;
+    }
+
+    public static void nothing(Object... nothings) {
+        return;
     }
 }
