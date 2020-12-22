@@ -8,6 +8,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     }
 
     public boolean add(T element) {
+        if (element == null) super.add(element);
         int i = 0;
         while (i < size() && element.compareTo(get(i)) > 0) i++;
         super.add(i, element);

@@ -81,6 +81,11 @@ public class Tester {
             OrderedArrayList<Integer> n = new OrderedArrayList<Integer>();
             n.add(3); n.add(6); n.add(-4); n.add(100);
             check(test, n.toString(), "[-4, 3, 6, 100]");
+
+            OrderedArrayList<Integer> s = new OrderedArrayList<Integer>();
+            s.add(null);
+            noException(test, "IllegalArgumentException");
+        } catch(IllegalArgumentException e) {
         } catch(RuntimeException e) {
             except(test, e);
         }
